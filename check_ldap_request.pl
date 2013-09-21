@@ -43,13 +43,13 @@ sub make_ldap_request
 	
 	if($mesg->count()) {
 		$ldap->unbind();
-		print "LDAP request OK - \'$filter\' exists\n";
+		print "LDAP request OK - \'$filter\' exists|query_results=$mesg->count\n";
 		exit(0);
 	}
 	else
 	{
 		$ldap->unbind();
-		print "LDAP request CRITICAL - unable to find \'$filter\'\n";
+		print "LDAP request CRITICAL - unable to find \'$filter\'|query_results=0\n";
 		exit(2);
 	}
 } 
